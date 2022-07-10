@@ -24,6 +24,7 @@ class UsersSeeder extends Seeder
             'email'             => 'demo@demo.com',
             'password'          => Hash::make('demo'),
             'email_verified_at' => now(),
+            'user_type'         => 's', //super admin
         ]);
 
         $this->addDummyInfo($faker, $demoUser);
@@ -35,6 +36,7 @@ class UsersSeeder extends Seeder
             'email'             => 'admin@demo.com',
             'password'          => Hash::make('demo'),
             'email_verified_at' => now(),
+            'user_type'         => 'm', //administrator/manage
         ]);
 
         $this->addDummyInfo($faker, $demoUser2);
