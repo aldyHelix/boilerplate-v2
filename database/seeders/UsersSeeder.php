@@ -18,6 +18,7 @@ class UsersSeeder extends Seeder
     public function run(Generator $faker)
     {
         $demoUser = User::create([
+            'uuid'              => $faker->unique()->uuid(),
             'first_name'        => $faker->firstName,
             'last_name'         => $faker->lastName,
             'email'             => 'demo@demo.com',
@@ -28,6 +29,7 @@ class UsersSeeder extends Seeder
         $this->addDummyInfo($faker, $demoUser);
 
         $demoUser2 = User::create([
+            'uuid'              => $faker->unique()->uuid(),
             'first_name'        => $faker->firstName,
             'last_name'         => $faker->lastName,
             'email'             => 'admin@demo.com',

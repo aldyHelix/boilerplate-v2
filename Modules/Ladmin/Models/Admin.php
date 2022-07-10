@@ -18,7 +18,7 @@ class Admin extends Authenticatable
     /**
      * Table name
      */
-    protected $table = 'ladmin_accounts';
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.
@@ -27,8 +27,10 @@ class Admin extends Authenticatable
      */
     protected $fillable = [
         'uuid',
-        'name',
+        'first_name',
+        'last_name',
         'email',
+        'api_token',
         'password',
     ];
 
