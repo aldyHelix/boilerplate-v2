@@ -2,18 +2,18 @@
 
 namespace App\Models;
 
-use App\Core\Traits\SpatieLogsActivity;
+use Hexters\Ladmin\LadminAccount;
+use Hexters\Ladmin\LadminLoggable;
+use Hexters\Ladmin\UuidGenerator;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Spatie\Permission\Traits\HasRoles;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasFactory, Notifiable;
-    use SpatieLogsActivity;
-    use HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, LadminAccount, LadminAccount, UuidGenerator, LadminLoggable;
 
     /**
      * The attributes that are mass assignable.

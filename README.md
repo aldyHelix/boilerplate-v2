@@ -75,12 +75,20 @@ Happy coding with Metronic!
 
         php artisan migrate:fresh --seed
 
+13. The Below command will run Ladmin database role permission
 
-13. Generate your application encryption key:
+        php artisan module:seed Ladmin
+
+14. Generate your application encryption key:
 
         php artisan key:generate
 
 
-14. Start the localhost server:
+15. Start the localhost server:
     
         php artisan serve
+
+## login
+    ` /login` for employee login (regular login side)
+    ` /administrator/login` for administrator or manage login
+    ` /system/login` for system login

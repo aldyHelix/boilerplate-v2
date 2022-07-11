@@ -29,6 +29,9 @@ class LoginController extends Controller
      */
     public function attempt(Request $request)
     {
+        $request->authenticate();
+
+        $request->session()->regenerate();
 
         $data = $request->validate([
             'email' => ['required', 'email'],

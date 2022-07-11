@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Str;
+use Hexters\Ladmin\Events\LadminLoginEvent;
+use Hexters\Ladmin\Events\LadminLogoutEvent;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -22,6 +24,7 @@ class AuthenticatedSessionController extends Controller
     public function create()
     {
         return view('auth.login');
+        //return ladmin()->view('auth.login');
     }
 
     /**
@@ -33,11 +36,26 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
-        $request->authenticate();
+        $data = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
 
-        $request->session()->regenerate();
+        if (Auth::guard( config('ladmin.auth.guard') )->attempt($data, $request->remember)) {
+            $request->authenticate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+            $request->session()->regenerate();
+
+            event(new LadminLoginEvent(auth()->guard( config('ladmin.auth.guard') )->user()));
+
+            return redirect()->intended(RouteServiceProvider::HOME);
+        }
+
+        session()->flash('warning', [
+            __('auth.failed')
+        ]);
+
+        return redirect()->back()->withInput();
     }
 
     /**
