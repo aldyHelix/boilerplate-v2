@@ -38,12 +38,13 @@ return [
      | into a class that extends to Illuminate\Foundation\Auth\User class.
      |
      */
-    'user' => \Modules\Ladmin\Models\Admin::class,
+    // 'user' => \Modules\Ladmin\Models\Admin::class,
+    'user' => \App\Models\User::class,
 
     /*
      |-----------------------------------------------------
      | Authentication
-     |----------------------------------------------------- 
+     |-----------------------------------------------------
      |
      | In this option you can change it as you want.
      | This option is filled according to the config/auth.php file.
@@ -60,7 +61,7 @@ return [
     /*
      |-----------------------------------------------------
      | Administrator Date format
-     |----------------------------------------------------- 
+     |-----------------------------------------------------
      |
      | You can use this option for the date format of your app
      | by calling it manually in the format Carbon\Carbon
@@ -79,7 +80,7 @@ return [
      | You need to rebuild the base template for this ladmin,
      | and you can also sell or make it open source
      | so that it can be used later
-     | 
+     |
      */
     'template' => [
         'module' => 'ladmin',
@@ -89,8 +90,8 @@ return [
     /*
      |-----------------------------------------------------
      | Ladmin User Activity
-     |----------------------------------------------------- 
-     | 
+     |-----------------------------------------------------
+     |
      | In this option you can set the duration of the activity log of the user
      | from your application. The log will be deleted automatically to free up storage
      |
@@ -102,8 +103,8 @@ return [
     /*
      |-----------------------------------------------------
      | Ladmin Option
-     |----------------------------------------------------- 
-     | 
+     |-----------------------------------------------------
+     |
      | Here you can specify the cache driver to use
      | in the Ladmin option, you can also disable it.
      | If this option is disabled then the data will be completely stored in the database

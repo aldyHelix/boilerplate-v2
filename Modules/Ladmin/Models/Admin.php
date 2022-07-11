@@ -53,6 +53,40 @@ class Admin extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getRememberToken()
+    {
+        return $this->remember_token;
+    }
+
+    public function setRememberToken($value)
+    {
+        $this->remember_token = $value;
+    }
+
+    /**
+     * Get a fullname combination of first_name and last_name
+     *
+     * @return string
+     */
+    public function getNameAttribute()
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
+
+    /**
+     * Prepare proper error handling for url attribute
+     *
+     * @return string
+     */
+    public function getAvatarUrlAttribute()
+    {
+        if ($this->info) {
+            return asset($this->info->avatar_url);
+        }
+
+        return asset(theme()->getMediaUrlPath().'avatars/blank.png');
+    }
+
     /**
      * Create a new factory instance for the model.
      *
