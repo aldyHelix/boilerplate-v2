@@ -9,7 +9,7 @@
 <div class="topbar d-flex align-items-stretch flex-shrink-0">
     <!--begin::Search-->
     <div class="d-flex align-items-stretch {{ $toolbarButtonMarginClass }}">
-        {{ theme()->getView('partials/search/_base') }}
+        {{-- {{ theme()->getView('partials/search/_base') }} --}}
     </div>
     <!--end::Search-->
 
@@ -23,7 +23,7 @@
     </div>
     <!--end::Activities--> --}}
 
-    <!--begin::Quick links-->
+    {{-- <!--begin::Quick links-->
     <div class="d-flex align-items-center {{ $toolbarButtonMarginClass }}">
         <!--begin::Menu wrapper-->
         <div class="btn btn-icon btn-active-light-primary {{ $toolbarButtonHeightClass }}" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
@@ -33,7 +33,7 @@
     {{ theme()->getView('partials/topbar/_quick-links-menu') }}
     <!--end::Menu wrapper-->
     </div>
-    <!--end::Quick links-->
+    <!--end::Quick links--> --}}
 
     {{-- <!--begin::Chat-->
     <div class="d-flex align-items-center {{ $toolbarButtonMarginClass }}">
