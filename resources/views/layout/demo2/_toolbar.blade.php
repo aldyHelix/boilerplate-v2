@@ -14,18 +14,18 @@
         <div class="d-flex align-items-center py-3 py-md-1">
             <!--begin::Wrapper-->
             <div class="me-4">
-                <!--begin::Menu-->
+                {{-- <!--begin::Menu-->
                 <a href="#" class="btn btn-custom btn-active-white btn-flex btn-color-white btn-active-color-primary fw-bolder" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
                     {!! theme()->getSvgIcon("icons/duotune/general/gen031.svg", "svg-icon-5 svg-icon-gray-500 me-1") !!}
                     Filter
                 </a>
 
                 {{ theme()->getView('partials/menus/_menu-1') }}
-                <!--end::Menu-->
+                <!--end::Menu--> --}}
             </div>
             <!--end::Wrapper-->
 
-            <!--begin::Button-->
+            {{-- <!--begin::Button-->
             @if (!empty($primaryButtonUrl))
                 <a href="{{ $primaryButtonUrl }}" class="btn btn-bg-white btn-active-color-primary" id="kt_toolbar_primary_button">
                     {{ $primaryButtonLabel }}
@@ -35,7 +35,7 @@
                     {{ $primaryButtonLabel }}
                 </a>
             @endif
-            <!--end::Button-->
+            <!--end::Button--> --}}
         </div>
 		<!--end::Actions-->
     </div>

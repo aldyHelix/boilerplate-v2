@@ -7,6 +7,7 @@ use Hexters\Ladmin\Events\LadminLogoutEvent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Modules\Ladmin\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
 
 class LoginController extends Controller
 {
@@ -27,7 +28,7 @@ class LoginController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return void
      */
-    public function attempt(Request $request)
+    public function attempt(LoginRequest $request)
     {
         $request->authenticate();
 

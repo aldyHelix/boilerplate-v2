@@ -35,7 +35,8 @@ data-kt-sticky="true"
         <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1">
             <!--begin::Navbar-->
             <div class="d-flex align-items-stretch" id="kt_header_nav">
-                {{ theme()->getView('layout/header/_menu') }}
+                <x-ladmin-menu-horizontal />
+                {{-- {{ theme()->getView('layout/header/_menu') }} --}}
             </div>
             <!--end::Navbar-->
 

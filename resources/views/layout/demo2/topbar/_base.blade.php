@@ -13,7 +13,7 @@
     </div>
     <!--end::Search-->
 
-    <!--begin::Activities-->
+    {{-- <!--begin::Activities-->
     <div class="d-flex align-items-center {{ $toolbarButtonMarginClass }}">
         <!--begin::Drawer toggle-->
         <div class="btn btn-icon btn-active-light-primary {{ $toolbarButtonHeightClass }}" id="kt_activities_toggle">
@@ -21,7 +21,7 @@
         </div>
         <!--end::Drawer toggle-->
     </div>
-    <!--end::Activities-->
+    <!--end::Activities--> --}}
 
     <!--begin::Quick links-->
     <div class="d-flex align-items-center {{ $toolbarButtonMarginClass }}">
@@ -35,7 +35,7 @@
     </div>
     <!--end::Quick links-->
 
-    <!--begin::Chat-->
+    {{-- <!--begin::Chat-->
     <div class="d-flex align-items-center {{ $toolbarButtonMarginClass }}">
         <!--begin::Menu wrapper-->
         <div class="btn btn-icon btn-active-light-primary position-relative {{ $toolbarButtonHeightClass }}" id="kt_drawer_chat_toggle">
@@ -46,7 +46,7 @@
         </div>
         <!--end::Menu wrapper-->
     </div>
-    <!--end::Chat-->
+    <!--end::Chat--> --}}
 
     <!--begin::Notifications-->
     <div class="d-flex align-items-center {{ $toolbarButtonMarginClass }}">

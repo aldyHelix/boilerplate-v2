@@ -23,11 +23,13 @@
 	>
     <!--begin::Aside menu-->
 	<div class="aside-menu flex-column-fluid">
-		{{ theme()->getView('layout/aside/_menu') }}
+        <x-ladmin-menu-sidebar />
+        {{-- Uncomment this code to activate asidemenu --}}
+		{{-- {{ theme()->getView('layout/aside/_menu') }} --}}
     </div>
     <!--end::Aside menu-->
 
-    <!--begin::Footer-->
+    {{-- <!--begin::Footer-->
     <div class="aside-footer flex-column-auto pt-5 pb-7 px-5" id="kt_aside_footer">
         <a href="{{ theme()->getPageUrl('documentation/getting-started/overview') }}" class="btn btn-custom btn-primary w-100" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click" title="{{ theme()->getOption('product', 'tooltips/docs-and-components') }}">
             <span class="btn-label">
@@ -36,6 +38,6 @@
             {!! theme()->getSvgIcon("icons/duotune/general/gen005.svg", "btn-icon svg-icon-2"); !!}
         </a>
     </div>
-    <!--end::Footer-->
+    <!--end::Footer--> --}}
 </div>
 <!--end::Aside-->

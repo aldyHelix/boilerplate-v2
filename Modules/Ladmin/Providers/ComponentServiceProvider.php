@@ -13,6 +13,7 @@ use Modules\Ladmin\View\Components\Footer;
 use Modules\Ladmin\View\Components\GlobalSearch;
 use Modules\Ladmin\View\Components\GuestLayout;
 use Modules\Ladmin\View\Components\Input;
+use Modules\Ladmin\View\Components\MenuHorizontal;
 use Modules\Ladmin\View\Components\MenuSidebar;
 use Modules\Ladmin\View\Components\Modal;
 use Modules\Ladmin\View\Components\Notification;
@@ -45,6 +46,7 @@ class ComponentServiceProvider extends ServiceProvider
             Alert::class,
             Error::class,
             MenuSidebar::class,
+            MenuHorizontal::class,
             Notification::class,
             DataTables::class,
             GlobalSearch::class,
@@ -54,5 +56,5 @@ class ComponentServiceProvider extends ServiceProvider
             Modal::class,
         ]);
     }
-    
+
 }
