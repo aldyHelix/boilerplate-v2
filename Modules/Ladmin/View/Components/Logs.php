@@ -3,21 +3,19 @@
 namespace Modules\Ladmin\View\Components;
 
 use Illuminate\View\Component;
+use Hexters\Ladmin\Models\LadminLoggable;
 
-class Notification extends Component
+class Logs extends Component
 {
-
-    public $user;
-
+    public $logs;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct( $user )
+    public function __construct()
     {
-        $this->user = $user;
-
+        $this->logs = LadminLoggable::limit(10)->get();
     }
 
     /**
@@ -27,6 +25,6 @@ class Notification extends Component
      */
     public function render()
     {
-        return ladmin()->component('notification');
+        return ladmin()->component('logs');
     }
 }
