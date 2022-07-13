@@ -38,8 +38,6 @@ mix.sass(`resources/assets/core/plugins/plugins.scss`, `public/${demo}/plugins/g
     // remove unused preprocessed fonts folder
     rimraf(path.resolve('public/fonts'), () => {
     });
-    rimraf(path.resolve('public/images'), () => {
-    });
 }).sourceMaps(!mix.inProduction())
     // .setResourceRoot('./')
     .options({processCssUrls: false})
@@ -228,3 +226,7 @@ function getParameters() {
 
     return args;
 }
+
+//extendsion images or something else
+mix.copyDirectory('resources/assets/images', 'public/images');
+mix.copy('resources/assets/images/logos/logos.png', 'public/images/logos/logos.png');

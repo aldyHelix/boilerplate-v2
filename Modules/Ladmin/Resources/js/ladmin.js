@@ -1,19 +1,19 @@
-Ladmin.activeMenuSidebar(
-    document.querySelector('.menu-sidebar .active')
-);
+// Ladmin.activeMenuSidebar(
+//     document.querySelector('.menu-sidebar .active')
+// );
 
-Ladmin.addMenuCarets();
+// Ladmin.addMenuCarets();
 
-Ladmin.clickHasSubmenu();
+// Ladmin.clickHasSubmenu();
 
-Ladmin.breadcrumb(
-    document.querySelector('.menu-sidebar .active')
-);
+// Ladmin.breadcrumb(
+//     document.querySelector('.menu-sidebar .active')
+// );
 
-Ladmin.notificationBadge();
+// Ladmin.notificationBadge();
 
 Ladmin.datatables();
 
-Ladmin.toggleClickPermissions();
+// Ladmin.toggleClickPermissions();
 
-Ladmin.globalSearchListener();
+// Ladmin.globalSearchListener();
