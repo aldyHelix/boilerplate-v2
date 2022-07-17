@@ -1,6 +1,8 @@
-<x-ladmin-button type="button" data-bs-toggle="modal" data-bs-target="#modal-create-role">
-    &plus; Add New
-</x-ladmin-button>
+@if ($button)
+    <x-ladmin-button type="button" data-bs-toggle="modal" data-bs-target="#modal-create-role">
+        &plus; Add New
+    </x-ladmin-button>
+@endif
 
 <form action="{{ route('ladmin.role.store') }}" method="POST">
     @csrf

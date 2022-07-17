@@ -1,12 +1,12 @@
-@can('role.assign')
-    <a href="{{ route('ladmin.role.show', ladmin()->back($role->id)) }}" class="btn btn-sm btn-primary">Assign
-        Permission</a>
-@endcan
-
 @can(['role.update'])
-    <a href="" data-bs-toggle="modal" class="btn btn-sm btn-outline-primary"
-        data-bs-target="#modal-edit-role-{{ $role->id }}">
-        Edit Role
+    <a href="" data-bs-toggle="modal" class="btn btn-icon btn-outline-primary"
+        data-bs-target="#modal-edit-role-{{ $role->id }}"
+        data-bs-toggle="tooltip"
+        data-bs-custom-class="tooltip-inverse"
+        data-bs-placement="top"
+        title="Edit data">
+        <i class="fas fa-edit"></i>
+
     </a>
 
 
@@ -29,9 +29,13 @@
 
 @if ($role->id > 1)
     @can(['role.destroy'])
-        <a href="" data-bs-toggle="modal" class="btn btn-sm btn-outline-danger"
-            data-bs-target="#modal-delete-role-{{ $role->id }}">
-            Delete
+        <a href="" data-bs-toggle="modal" class="btn btn-icon btn-outline-danger"
+            data-bs-target="#modal-delete-role-{{ $role->id }}"
+            data-bs-toggle="tooltip"
+            data-bs-custom-class="tooltip-inverse"
+            data-bs-placement="top"
+            title="Delete data">
+            <i class="fas fa-trash"></i>
         </a>
 
         <x-ladmin-modal id="modal-delete-role-{{ $role->id }}" class="text-start">

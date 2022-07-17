@@ -3,24 +3,96 @@
 namespace Modules\Ladmin\Datatables;
 
 use Modules\Ladmin\Models\LadminRole;
-use Hexters\Ladmin\Supports\Datatables;
+use Yajra\DataTables\Html\Button;
+use Yajra\DataTables\Html\Column;
+use Yajra\DataTables\Services\DataTable;
+/**
+ * Authors : @aldyHelix
+ * use gitLens for future somewones updates
+ */
 
-class RoleDatatables extends Datatables
+class RoleDatatables extends Datatable
 {
-
-    /**
-     * Page title
+     /**
+     * Build DataTable class.
      *
-     * @var String
+     * @param  mixed $query Results from query() method.
+     * @return  \Yajra\DataTables\DataTableAbstract
      */
-    protected $title = 'List of Roles';
+    public function dataTable($query)
+    {
+        return datatables()
+            ->eloquent($query)
+            ->addIndexColumn()
+            ->editColumn('gates', function ($row) {
+                return count($row->gates) . ' access';
+            })
+            ->addColumn('admins', function ($row) {
+                return $row->admins->count() . ' admin';
+            })
+            ->addColumn('assign', function ($row) {
+                return ladmin()->view('role._parts.table-assign', ['role' => $row]);
+            })
+            ->addColumn('action', function ($row) {
+                return ladmin()->view('role._parts.table-action', ['role' => $row]);
+            });
+    }
 
     /**
-     * Setup query builder
+     * Get query source of dataTable.
+     *
+     * @param  \App\User $model
+     * @return  \Illuminate\Database\Eloquent\Builder
      */
-    public function __construct()
+    public function query(LadminRole $model)
     {
-        $this->query = LadminRole::query();
+        return $model->newQuery();
+    }
+
+    /**
+     * Optional method if you want to use html builder.
+     *
+     * @return  \Yajra\DataTables\Html\Builder
+     */
+    public function html()
+    {
+        return $this->builder()
+                    ->setTableId('roles-table')
+                    ->columns($this->getColumns())
+                    ->minifiedAjax()
+                    ->dom('<"top"<"left-col"f><"center-col"><"right-col"B>>rtip')
+                    ->orderBy(1)
+                    ->buttons([
+                        Button::raw('<i class="fas fa-plus"></i> Add Role')
+                            ->className('btn btn-primary')
+                            ->init($this->initButton()) //add remove  button
+                            ->attr($this->createButton()), //add attribute
+                    ]);
+    }
+
+
+    /**
+     * create button Attribute that can call modal build in
+     *
+     * see controller at \Modules\Ladmin\Http\Controllers\RoleController;
+     * @return array
+     */
+    public function createButton()
+    {
+        return [
+            'data-bs-toggle' => 'modal',
+            'data-bs-target' => '#modal-create-role'
+        ];
+    }
+
+    /**
+     * Button add javascript into init
+     *
+     * @return string
+     */
+    public function initButton()
+    {
+        return "$(node).removeClass('btn-secondary')";
     }
 
     /**
@@ -34,52 +106,46 @@ class RoleDatatables extends Datatables
     }
 
     /**
-     * DataTables using Eloquent Builder.
+     * Get columns.
      *
-     * @return DataTableAbstract|EloquentDataTable
+     * @return  array
      */
-    public function handle()
-    {
-        return $this->eloquent($this->query)
-            ->editColumn('gates', function ($row) {
-                return count($row->gates) . ' access';
-            })
-            ->addColumn('admins', function ($row) {
-                return $row->admins->count() . ' admin';
-            })
-            ->addColumn('action', function ($row) {
-                return ladmin()->view('role._parts.table-action', ['role' => $row]);
-            });
-    }
-
-    /**
-     * Table headers
-     *
-     * @return array
-     */
-    public function headers(): array
+    protected function getColumns()
     {
         return [
-            'Role Name',
-            'Used' => ['class' => 'text-center'],
-            'Permissions' => ['class' => 'text-center'],
-            'Action' => ['class' => 'text-end'],
+            Column::make('DT_RowIndex')->title(__('No'))->searchable(false),
+            Column::make('name')->title('Role Name')->addClass('text-start'),
+            Column::make('admins')
+                ->title('Used')
+                ->addClass('text-center')
+                ->searchable(false),
+            Column::make('gates')
+                ->title('Permission')
+                ->addClass('text-center')
+                ->searchable(false),
+            Column::make('assign')
+                    ->title('Assign Permission')
+                    ->addClass('text-center')
+                    ->width(200)
+                    ->exportable(false)
+                    ->printable(false)
+                    ->searchable(false),
+            Column::computed('action')
+                  ->exportable(false)
+                  ->printable(false)
+                  ->width(200)
+                  ->addClass('text-end')
+                  ->searchable(false),
         ];
     }
 
-    /**
-     * Datatables Data column
-     * Visit Doc: https://datatables.net/reference/option/columns.data#Default
+     /**
+     * Get filename for export.
      *
-     * @return array
+     * @return  string
      */
-    public function columns(): array
+    protected function filename()
     {
-        return [
-            ['data' => 'name'],
-            ['data' => 'admins', 'class' => 'text-center'],
-            ['data' => 'gates', 'class' => 'text-center'],
-            ['data' => 'action', 'class' => 'text-end', 'orderable' => false]
-        ];
+        return 'Roles_' . date('YmdHis');
     }
 }

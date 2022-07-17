@@ -25,7 +25,7 @@ return array(
         // Main
         'main'       => array(
             'type'              => 'default', // Set layout type: default|blank|none
-            'primary-color'     => '#009EF7',
+            'primary-color'     => '#4B99C4',
             'dark-mode-enabled' => true, // Enable optioanl dark mode mode
             'body'              => array(
                 'background-image' => 'patterns/'.(theme()->isDarkMode() ? 'header-bg-dark.png' : 'header-bg.jpg'),
@@ -41,7 +41,7 @@ return array(
         // Header
         'header'     => array(
             'display'   => true, // Display header
-            'width'     => 'fixed', // Set header width(fixed|fluid)
+            'width'     => 'fluid', // Set header width(fixed|fluid)
             'left'      => 'menu', // Set left part content(menu|page-title)
             'fixed'     => array(
                 'desktop'           => true,  // Set fixed header for desktop
@@ -61,7 +61,7 @@ return array(
         'page-title' => array(
             'display'     => true, // Display page title
             'breadcrumb'  => true, // Display breadcrumb
-            'description' => false, // Display description
+            'description' => true, // Display description
         ),
 
         // Aside
@@ -69,13 +69,13 @@ return array(
             'display'   => false, // Display aside
             'sticky'    => true, // Enable sticky aside
             'menu'      => 'main', // Set aside menu(main|documentation)
-            'menu-icon' => 'svg' // Menu icon type(svg|font)
+            'menu-icon' => 'font' // Menu icon type(svg|font)
         ),
 
         // Content
         'content'    => array(
             'width'  => 'fixed', // Set content width(fixed|fluid)
-            'layout' => 'default'  // Set content layout(default|documentation)
+            'layout' => 'documentation'  // Set content layout(default|documentation)
         ),
 
         // Footer

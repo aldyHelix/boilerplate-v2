@@ -140,150 +140,27 @@ return array(
         ),
     ),
 
-    // Documentation pages
-    'documentation' => array(
+    'administrator' => array(
         '*' => array(
             'assets' => array(
-                'vendors' => array(
+                'custom' => array(
                     'css' => array(
-                        'plugins/custom/prismjs/prismjs.bundle.css',
+                        'plugins/custom/datatables/datatables.bundle.css',
                     ),
                     'js'  => array(
-                        'plugins/custom/prismjs/prismjs.bundle.js',
-                    ),
-                ),
-                'custom'  => array(
-                    'js' => array(
-                        'js/custom/documentation/documentation.js',
+                        'plugins/custom/datatables/datatables.bundle.js',
                     ),
                 ),
             ),
-
-            'layout' => array(
-                'base'    => 'docs', // Set base layout: default|docs
-
-                // Content
-                'content' => array(
-                    'width'  => 'fixed', // Set fixed|fluid to change width type
-                    'layout' => 'documentation'  // Set content type
-                ),
-            ),
         ),
-
-        'getting-started' => array(
-            'overview' => array(
-                'title'       => 'Overview',
-                'description' => '',
-                'view'        => 'documentation/getting-started/overview',
-            ),
-
-            'build' => array(
-                'title'       => 'Gulp',
-                'description' => '',
-                'view'        => 'documentation/getting-started/build/build',
-            ),
-
-            'multi-demo' => array(
-                'overview' => array(
-                    'title'       => 'Overview',
-                    'description' => '',
-                    'view'        => 'documentation/getting-started/multi-demo/overview',
+        'role' => array(
+            'title'       => 'Role & Permission',
+            'description' => 'Change user role and permission',
+            'layout'      => array(
+                'page-title' => array(
+                    'description' => true,
+                    'breadcrumb'  => true,
                 ),
-                'build'    => array(
-                    'title'       => 'Multi-demo Build',
-                    'description' => '',
-                    'view'        => 'documentation/getting-started/multi-demo/build',
-                ),
-            ),
-
-            'file-structure' => array(
-                'title'       => 'File Structure',
-                'description' => '',
-                'view'        => 'documentation/getting-started/file-structure',
-            ),
-
-            'customization' => array(
-                'sass'       => array(
-                    'title'       => 'SASS',
-                    'description' => '',
-                    'view'        => 'documentation/getting-started/customization/sass',
-                ),
-                'javascript' => array(
-                    'title'       => 'Javascript',
-                    'description' => '',
-                    'view'        => 'documentation/getting-started/customization/javascript',
-                ),
-            ),
-
-            'dark-mode' => array(
-                'title' => 'Dark Mode Version',
-                'view'  => 'documentation/getting-started/dark-mode',
-            ),
-
-            'rtl' => array(
-                'title' => 'RTL Version',
-                'view'  => 'documentation/getting-started/rtl',
-            ),
-
-            'troubleshoot' => array(
-                'title' => 'Troubleshoot',
-                'view'  => 'documentation/getting-started/troubleshoot',
-            ),
-
-            'changelog' => array(
-                'title'       => 'Changelog',
-                'description' => 'version and update info',
-                'view'        => 'documentation/getting-started/changelog/changelog',
-            ),
-
-            'updates' => array(
-                'title'       => 'Updates',
-                'description' => 'components preview and usage',
-                'view'        => 'documentation/getting-started/updates',
-            ),
-
-            'references' => array(
-                'title'       => 'References',
-                'description' => '',
-                'view'        => 'documentation/getting-started/references',
-            ),
-        ),
-
-        'general' => array(
-            'datatables'   => array(
-                'overview' => array(
-                    'title'       => 'Overview',
-                    'description' => 'plugin overview',
-                    'view'        => 'documentation/general/datatables/overview/overview',
-                ),
-            ),
-            'remove-demos' => array(
-                'title'       => 'Remove Demos',
-                'description' => 'How to remove unused demos',
-                'view'        => 'documentation/general/remove-demos/index',
-            ),
-        ),
-
-        'configuration' => array(
-            'general'     => array(
-                'title'       => 'General Configuration',
-                'description' => '',
-                'view'        => 'documentation/configuration/general',
-            ),
-            'menu'        => array(
-                'title'       => 'Menu Configuration',
-                'description' => '',
-                'view'        => 'documentation/configuration/menu',
-            ),
-            'page'        => array(
-                'title'       => 'Page Configuration',
-                'description' => '',
-                'view'        => 'documentation/configuration/page',
-            ),
-            'npm-plugins' => array(
-                'title'       => 'Add NPM Plugin',
-                'description' => 'Add new NPM plugins and integrate within webpack mix',
-                'view'        => 'documentation/configuration/npm-plugins',
             ),
         ),
     ),

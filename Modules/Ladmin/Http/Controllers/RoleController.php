@@ -15,13 +15,19 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(RoleDatatables $dataTable)
     {
         ladmin()->allows(['role.index']);
 
-        return RoleDatatables::view();
+        // return RoleDatatables::view();
+        $pageOptions = [
+            'button_create' => view('ladmin::bootstrap.role.create', ['button' => false]),
+        ];
+
+        return $dataTable->render('boiler-page.index', $pageOptions);
+        //return $dataTable->render('boiler-page.index', ['button_create' => 'aaaaaaaaaaaaaaa']); <- using button on top
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -44,11 +50,11 @@ class RoleController extends Controller
     public function show($id)
     {
         ladmin()->allows(['role.assign']);
-        
+
         $data['role'] = LadminRole::findOrFail($id);
         return ladmin()->view('permission.show', $data);
     }
-    
+
     /**
      * Update the specified resource in storage.
      *

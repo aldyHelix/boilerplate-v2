@@ -25,6 +25,7 @@
             </div>
             <!--end::Wrapper-->
 
+            {{ $button_create ?? null }}
             {{-- <!--begin::Button-->
             @if (!empty($primaryButtonUrl))
                 <a href="{{ $primaryButtonUrl }}" class="btn btn-bg-white btn-active-color-primary" id="kt_toolbar_primary_button">

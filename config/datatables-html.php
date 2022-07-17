@@ -11,7 +11,7 @@ return [
      * Default table attributes when generating the table.
      */
     'table' => [
-        'class' => 'table',
+        'class' => 'table table-striped table-row-bordered gy-5 gs-7',
         'id'    => 'dataTableBuilder',
     ],
 
