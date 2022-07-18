@@ -23,11 +23,11 @@ class SystemLog extends BaseMenu
     protected $name = 'System Log';
 
     /**
-     * Font icons 
+     * Font icons
      *
      * @var string
      */
-    protected $icon = null; // fontawesome
+    protected $icon = 'fas fa-clipboard-list'; // fontawesome
 
     /**
      * Menu description

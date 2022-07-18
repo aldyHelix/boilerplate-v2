@@ -6,6 +6,7 @@ use Hexters\Ladmin\Supports\BaseMenu;
 use Hexters\Ladmin\Menus\Gate;
 use Modules\Ladmin\Menus\Submenus\SystemLog;
 use Modules\Ladmin\Menus\Submenus\UserActivity;
+use Modules\Ladmin\Menus\Submenus\AuditLog;
 
 class System extends BaseMenu
 {
@@ -25,7 +26,7 @@ class System extends BaseMenu
     protected $name = 'System';
 
     /**
-     * Font icons 
+     * Font icons
      *
      * @var string
      */
@@ -84,6 +85,7 @@ class System extends BaseMenu
     protected function submenus()
     {
         return [
+            AuditLog::class,
             UserActivity::class,
             SystemLog::class,
         ];

@@ -13,7 +13,7 @@ $type = $menu['type'] ?? 'menu';
         {{ isset($menu['submenus']) && count($menu['submenus']) > 0 ? ' data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start"' : ''}}>
         @if (isset($menu['submenus']) && count($menu['submenus']) > 0)
             <span class="menu-link py-3">
-                {{-- <i class="{{ $menu['icon'] }}"></i> --}}
+                <i class="{{ $menu['icon'] }}"></i>
                 <span class="menu-title">{{ $menu['name'] }}</span>
                 @if (isset($menu['submenus']) && count($menu['submenus']) > 0)
                     <span class="menu-arrow d-lg-none"></span>
@@ -21,7 +21,7 @@ $type = $menu['type'] ?? 'menu';
             </span>
         @else
             <a class="menu-link py-3" href="{{ $route }}" target="{{ $menu['target'] }}">
-                {{-- <i class="{{ $menu['icon'] }}"></i> --}}
+                <i class="{{ $menu['icon'] }}"></i>
                 <span class="menu-icon">
                     <i class="{{ $menu['icon'] }}"></i>
                 </span>

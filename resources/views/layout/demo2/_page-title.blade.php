@@ -18,7 +18,11 @@
 <div {{ theme()->printHtmlAttributes("page-title") }} class="page-title d-flex flex-column {{ $baseClass }}">
     <!--begin::Title-->
     <h1 class="d-flex text-white fw-bolder my-1 fs-3">
-        {{ theme()->getOption('page', 'title') }}
+        @if ($title)
+            {{ $title ?? null }}
+        @else
+            {{ theme()->getOption('page', 'title') }}
+        @endif
 
         @if (!empty(theme()->hasOption('page', 'description')) && theme()->getOption('layout', 'page-title/description') !== false)
             <!--begin::Separator-->

@@ -5,43 +5,44 @@ namespace Modules\Ladmin\Menus\Submenus;
 use Hexters\Ladmin\Menus\Gate;
 use Hexters\Ladmin\Supports\BaseMenu;
 
-class Admin extends BaseMenu
+class AuditLog extends BaseMenu
 {
 
     /**
-     * Gate of default menu
+     * Gate name for accessing module
      *
      * @var string
      */
-    protected $gate = 'ladmin.admin.index';
+    protected $gate = 'log.audit.index';
 
     /**
-     * Menu title
+     * Name of menu
      *
      * @var string
      */
-    protected $name = 'Admin';
+    protected $name = 'Audit Log';
 
     /**
-     * Menu Font icon
+     * Font icons
      *
      * @var string
      */
-    protected $icon = 'fas fa-user';
+    protected $icon = 'fas fa-history'; // fontawesome
 
     /**
-     * Menu Description
+     * Menu description
      *
      * @var string
      */
-    protected $description = 'User can access menu account';
+    protected $description = 'User can access audit log changes';
 
     /**
-     * Status active menu
+     * Inspecting The Request Path / Route active
+     * https://laravel.com/docs/master/requests#inspecting-the-request-path
      *
      * @var string
      */
-    protected $isActive = 'admin*';
+    protected $isActive = 'audit*';
 
     /**
      * Menu ID
@@ -58,7 +59,7 @@ class Admin extends BaseMenu
      */
     protected function route(): ?array
     {
-        return ['ladmin.admin.index'];
+        return ['log.audit.index'];
     }
 
     /**
@@ -69,18 +70,20 @@ class Admin extends BaseMenu
     protected function gates()
     {
         return [
-            new Gate(gate: 'ladmin.admin.create', title: 'Create New Admin', description: 'User can create new admin account'),
-            new Gate(gate: 'ladmin.admin.update', title: 'Update Admin', description: 'User can update admin account'),
+            new Gate(gate: 'log.audit.show', title: 'View details', description: 'User can view details'),
+            new Gate(gate: 'log.audit.destroy', title: 'Delete record', description: 'User can delete audit log'),
         ];
     }
 
     /**
-     * Submenu
+     * Other menus
      *
      * @return void
      */
     protected function submenus()
     {
-        return [];
+        return [
+            // OtherMenu::class
+        ];
     }
 }

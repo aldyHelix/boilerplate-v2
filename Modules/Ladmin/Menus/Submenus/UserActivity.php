@@ -23,11 +23,11 @@ class UserActivity extends BaseMenu
     protected $name = 'User Activity';
 
     /**
-     * Font icons 
+     * Font icons
      *
      * @var string
      */
-    protected $icon = null; // fontawesome
+    protected $icon = 'fas fa-id-card'; // fontawesome
 
     /**
      * Menu description

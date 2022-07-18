@@ -52,6 +52,7 @@
     <x-slot name="button_create">
         {!! $button_create ?? null !!}
     </x-slot>
+
     <div id="overlay"></div>
     <!--begin::Card-->
     <div class="card">

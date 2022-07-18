@@ -27,7 +27,7 @@ class Role extends BaseMenu
      *
      * @var string
      */
-    protected $icon = null;
+    protected $icon = 'fas fa-user-check';
 
     /**
      * Menu Description

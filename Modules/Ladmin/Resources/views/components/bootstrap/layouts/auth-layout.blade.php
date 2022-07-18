@@ -1,5 +1,14 @@
 @extends('ladmin::components.bootstrap.layouts.base')
 
+@php
+$options = [
+    'button_create' => $button_create ?? null,
+    'title' => $title ?? null,
+    'breadcrums' => $breadcrums ?? null,
+    'description' => $description ?? null
+];
+@endphp
+
 @section('content')
     <!--begin::Main-->
     @if (theme()->getOption('layout', 'main/type') === 'blank')
@@ -16,7 +25,7 @@
                 {{ theme()->getView('layout/header/_base') }}
 
                 @if (theme()->getOption('layout', 'toolbar/display') === true)
-					{{ theme()->getView('layout/_toolbar') }}
+					{{ theme()->getView('layout/_toolbar', $options) }}
 				@endif
 
                 <!--begin::Container-->

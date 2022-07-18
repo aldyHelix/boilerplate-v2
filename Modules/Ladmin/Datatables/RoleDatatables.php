@@ -67,7 +67,8 @@ class RoleDatatables extends Datatable
                             ->className('btn btn-primary')
                             ->init($this->initButton()) //add remove  button
                             ->attr($this->createButton()), //add attribute
-                    ]);
+                    ])
+                    ->initComplete('function() { $("#overlay").hide(); }');
     }
 
 

@@ -3,12 +3,11 @@
     $primaryButtonUrl = theme()->getOption("layout", "toolbar/primary-button-url");
     $primaryButtonModalTarget = theme()->getOption("layout", "toolbar/primary-button-modal-target", "#kt_modal_create_app");
 @endphp
-
 <!--begin::Toolbar-->
 <div class="toolbar py-5 py-lg-15" id="kt_toolbar">
     <!--begin::Container-->
     <div id="kt_toolbar_container" class="{{ theme()->printHtmlClasses('toolbar-container', false) }} d-flex flex-stack flex-wrap">
-        {{ theme()->getView('layout/_page-title') }}
+        {{ theme()->getView('layout/_page-title', ['title' => $title ?? null]) }}
 
 		<!--begin::Actions-->
         <div class="d-flex align-items-center py-3 py-md-1">
