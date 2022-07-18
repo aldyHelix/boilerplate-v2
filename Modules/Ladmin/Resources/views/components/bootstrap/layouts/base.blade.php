@@ -99,7 +99,7 @@
 
 @stack('before-scripts')
     {{ $scripts ?? null }}
-<script src="{{ mix('/js/bs-ladmin.js') }}"></script>
+    {{-- <script src="{{ mix('/js/bs-ladmin.js') }}"></script> --}}
 
 @yield('scripts')
 

@@ -153,6 +153,7 @@ return array(
                 ),
             ),
         ),
+
         'role' => array(
             'title'       => 'Role & Permission',
             'description' => 'Change user role and permission',
@@ -160,6 +161,15 @@ return array(
                 'page-title' => array(
                     'description' => true,
                     'breadcrumb'  => true,
+                ),
+            ),
+            '*' => array(
+                'assets' => array(
+                    'custom' => array(
+                        'js'  => array(
+                            '../js/bs-ladmin.js',
+                        ),
+                    ),
                 ),
             ),
         ),
