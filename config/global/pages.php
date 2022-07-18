@@ -163,5 +163,15 @@ return array(
                 ),
             ),
         ),
+
+        'admin' => array(
+            'title'       => 'User Admin',
+            'layout'      => array(
+                'page-title' => array(
+                    'description' => false,
+                    'breadcrumb'  => true,
+                ),
+            ),
+        ),
     ),
 );
