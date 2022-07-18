@@ -59,7 +59,9 @@ class AdminDatatables extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('<"top"<"left-col"f><"center-col"><"right-col">>rtip')
-                    ->orderBy(2);
+                    ->orderBy(2)
+                    ->processing(true)
+                    ->initComplete('function() { $("#overlay").hide(); }');
                     // ->buttons([
                     //     Button::raw('<i class="fas fa-plus"></i> Add Role')
                     //         ->className('btn btn-primary')

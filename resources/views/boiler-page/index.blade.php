@@ -20,23 +20,39 @@
             .dt-buttons{
                 padding: 1rem 0;
             }
+
+            div.dataTables_wrapper div.dataTables_processing {
+                border-radius: unset !important;
+                box-shadow: none !important;
+                background-color: unset !important;
+                opacity: 1 !important;
+                z-index: 999999;
+            }
+
+            #overlay {
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                z-index: 99999;
+                background-color: rgb(0, 0, 0);
+                filter: alpha(opacity=75);
+                -moz-opacity: 0.75;
+                opacity: 0.75;
+                display: none;
+            }
+            #overlay h2 {
+                position: fixed;
+                margin-left: 40%;
+                top: 40%;
+            }
         </style>
     @endsection
     <x-slot name="button_create">
         {!! $button_create ?? null !!}
     </x-slot>
-
-    <x-slot name="title">
-        {!! $title ?? null !!}
-    </x-slot>
-
-    <x-slot name="breadcrums">
-        {!! $breadcrums ?? null !!}
-    </x-slot>
-
-    <x-slot name="description">
-        {!! $description ?? null !!}
-    </x-slot>
+    <div id="overlay"></div>
     <!--begin::Card-->
     <div class="card">
         <!--begin::Card body-->
@@ -47,6 +63,10 @@
 
             {{-- Inject Scripts --}}
             @section('scripts')
+                <script>
+                    $("#overlay").show();
+                </script>
+
                 {{ $dataTable->scripts() }}
             @endsection
         </div>
