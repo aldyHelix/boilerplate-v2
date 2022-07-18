@@ -12,8 +12,8 @@
 
 // Ladmin.notificationBadge();
 
-Ladmin.datatables();
+// Ladmin.datatables();
 
-// Ladmin.toggleClickPermissions();
+Ladmin.toggleClickPermissions();
 
 // Ladmin.globalSearchListener();

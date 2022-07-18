@@ -2,11 +2,11 @@
 $uniq = uniqid();
 @endphp
 
-<li
+<div
     class="{{ ($gate['type'] ?? 'menu') === 'divider' ? 'border-top bg-light border-bottom' : '' }} {{ isset($gate['gates']) && count($gate['gates']) > 0 ? 'has-permission' : null }} {{ isset($gate['submenus']) && count($gate['submenus']) > 0 ? 'has-sub' : '' }}">
     <div class="d-flex justify-content-between align-items-center py-3">
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox"
+        <div class="form-check align-middle">
+            <input class="form-check-input align-middle" type="checkbox"
                 {{ in_array($gate['gate'], $role->gates ?? []) ? 'checked' : '' }} value="{{ $gate['gate'] }}"
                 name="gates[]" id="{{ $gate['gate'] }}">
             <label class="form-check-label" for="{{ $gate['gate'] }}">
@@ -35,12 +35,12 @@ $uniq = uniqid();
 
 
     @if (isset($gate['gates']) && count($gate['gates']) > 0 && ($gate['type'] ?? 'menu') === 'menu')
-        <div class="collapse" id="permission-{{ $uniq }}">
+        <div class="collapse ms-5" id="permission-{{ $uniq }}">
             <h6 class="text-primary">Permissions</h6>
-            <ul class="bg-dark text-light rounded">
+            <div class="text-light rounded">
                 @foreach ($gate['gates'] as $item)
-                    <li class="py-3 form-check ladmin-permission-tile">
-                        <input class="form-check-input" type="checkbox"
+                    <div class="py-3 form-check ladmin-permission-tile">
+                        <input class="form-check-input align-middle" type="checkbox"
                             {{ in_array($item['gate'], $role->gates ?? []) ? 'checked' : '' }}
                             value="{{ $item['gate'] }}" name="gates[]" id="{{ $item['gate'] }}">
                         <label class="form-check-label" for="{{ $item['gate'] }}">
@@ -49,9 +49,9 @@ $uniq = uniqid();
                         <div>
                             <small class="text-muted">{{ $item['description'] }}</small>
                         </div>
-                    </li>
+                    </div>
                 @endforeach
-            </ul>
+            </div>
         </div>
     @endif
 
@@ -60,4 +60,4 @@ $uniq = uniqid();
             {!! $viewMenu($gate['submenus'], $level + 1) !!}
         </ul>
     @endif
-</li>
+</div>

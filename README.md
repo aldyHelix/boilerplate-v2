@@ -57,6 +57,7 @@ Happy coding with Metronic!
 8. The below command will compile all the assets(sass, js, media) to public folder:
    
         npm run dev
+        php artisan vendor:publish --tag=ladmin-asset --force
 
 
 9. Copy `.env.example` file and create duplicate. Use `cp` command for Linux or Max user.
