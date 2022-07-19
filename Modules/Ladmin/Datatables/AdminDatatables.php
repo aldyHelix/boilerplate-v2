@@ -5,6 +5,7 @@ namespace Modules\Ladmin\Datatables;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
+use Illuminate\Support\Facades\Auth;
 
 class AdminDatatables extends DataTable
 {
@@ -58,16 +59,17 @@ class AdminDatatables extends DataTable
                     ->setTableId('admin-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    ->dom('<"top"<"left-col"f><"center-col"><"right-col">>rtip')
+                    ->dom('<"top"<"left-col"f><"center-col"><"right-col"B>>rtip')
                     ->orderBy(2)
                     ->processing(true)
+                    ->buttons([
+                        Button::raw('<i class="fas fa-plus"></i> Add New Admin')
+                            ->className('btn btn-primary')
+                            ->init($this->initButton()) //add remove  button
+                            ->attr($this->createButton()), //add attribute
+                    ])
                     ->initComplete('function() { $("#overlay").hide(); }')
                     ->headerCallback("function() { $('#admin-table thead tr').addClass('fw-semibold fs-6 text-gray-800') }");
-                    // ->buttons([
-                    //     Button::raw('<i class="fas fa-plus"></i> Add Role')
-                    //         ->className('btn btn-primary')
-                    //         ->init($this->initButton()), //add remove  button
-                    // ]);
     }
 
      /**
@@ -80,7 +82,7 @@ class AdminDatatables extends DataTable
     {
         return [
             'data-bs-toggle' => 'modal',
-            'data-bs-target' => '#modal-create-role'
+            'data-bs-target' => '#modal-create-admin'
         ];
     }
 
@@ -99,9 +101,9 @@ class AdminDatatables extends DataTable
      *
      * @return \Illuminate\Support\Facades\Blade
      */
-    public function button()
+    public function create()
     {
-        return ladmin()->view('role.create');
+        return ladmin()->view('admin.create');
     }
 
 

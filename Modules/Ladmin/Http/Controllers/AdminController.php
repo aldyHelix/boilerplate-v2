@@ -15,9 +15,13 @@ class AdminController extends Controller
      */
     public function index(AdminDatatables $dataTable)
     {
-
         ladmin()->allows(['ladmin.admin.index']);
-        return $dataTable->render('boiler-page.index');
+
+        $pageOptions = [
+            'button_create' => view('ladmin::bootstrap.admin.create', ['button' => false]),
+        ];
+
+        return $dataTable->render('boiler-page.index', $pageOptions);
     }
 
     /**
