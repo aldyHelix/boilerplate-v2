@@ -15,7 +15,7 @@ class AuditLogsController extends Controller
      */
     public function index(AuditLogsDataTable $dataTable)
     {
-        return $dataTable->render('pages.log.audit.index');
+        return $dataTable->render('boiler-page.index');
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\DataTables\Logs;
 use Spatie\Activitylog\Models\Activity;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
+use Illuminate\Support\Facades\Blade;
 
 class AuditLogsDataTable extends DataTable
 {
@@ -19,7 +20,7 @@ class AuditLogsDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->rawColumns(['description', 'properties', 'action'])
+            ->rawColumns(['description', 'properties', 'action', 'created_at'])
             ->editColumn('id', function (Activity $model) {
                 return $model->id;
             })
@@ -43,7 +44,9 @@ class AuditLogsDataTable extends DataTable
                 return view('pages.log.audit._details', compact('content'));
             })
             ->editColumn('created_at', function (Activity $model) {
-                return $model->created_at->format('d M, Y H:i:s');
+                $date = $model->created_at->format(config('ladmin.date.format'));
+                $diff = $model->created_at->diffForHumans();
+                return Blade::render('<span>' . $date . '</span><br><small class="text-muted">' . $diff . '</small>');
             })
             ->addColumn('action', function (Activity $model) {
                 return view('pages.log.audit._action-menu', compact('model'));
@@ -77,11 +80,14 @@ class AuditLogsDataTable extends DataTable
             ->orderBy(6)
             ->responsive()
             ->autoWidth(false)
+            ->dom('<"top"<"left-col"f><"center-col"><"right-col">>rtip')
             ->parameters([
                 'scrollX'      => true,
                 'drawCallback' => 'function() { KTMenu.createInstances(); }',
             ])
-            ->addTableClass('align-middle table-row-dashed fs-6 gy-5');
+            ->addTableClass('align-middle table-row-dashed fs-6 gy-5')
+            ->initComplete('function() { $("#overlay").hide(); }')
+            ->headerCallback("function() { $('#audit-log-table thead tr').addClass('fw-semibold fs-6 text-gray-800') }");
     }
 
     /**

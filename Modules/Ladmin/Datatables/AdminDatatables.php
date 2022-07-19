@@ -61,7 +61,8 @@ class AdminDatatables extends DataTable
                     ->dom('<"top"<"left-col"f><"center-col"><"right-col">>rtip')
                     ->orderBy(2)
                     ->processing(true)
-                    ->initComplete('function() { $("#overlay").hide(); }');
+                    ->initComplete('function() { $("#overlay").hide(); }')
+                    ->headerCallback("function() { $('#admin-table thead tr').addClass('fw-semibold fs-6 text-gray-800') }");
                     // ->buttons([
                     //     Button::raw('<i class="fas fa-plus"></i> Add Role')
                     //         ->className('btn btn-primary')

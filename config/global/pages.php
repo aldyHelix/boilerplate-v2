@@ -174,6 +174,10 @@ return array(
             ),
         ),
 
+        'activities' => array(
+            'title' => 'List of user activities'
+        ),
+
         'admin' => array(
             'title'       => 'User Admin',
             'layout'      => array(

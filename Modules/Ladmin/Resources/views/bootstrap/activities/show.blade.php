@@ -1,8 +1,11 @@
 <x-ladmin-auth-layout>
     <x-slot name="title">Activity Details</x-slot>
 
-    <div class="mb-4">
-        <div class="row mb-3">
+    <div class="card">
+        <div class="card-body pt-6">
+
+            <div class="mb-4">
+                <div class="row mb-3">
             <div class="col-lg-4">Date :</div>
             <div class="col">
                 <strong>{{ $data->created_at->format(config('ladmin.date.format')) }}</strong> <br>
@@ -38,17 +41,17 @@
     <hr>
 
     @if (count($data->new_data) > 0)
-        <div class="mb-3 p-3 table-responsive">
-            <x-ladmin-card>
-                <x-slot name="body">
-                    <h5 class="card-title">New Data</h5>
-                    <table class="table">
-                        @foreach ($data->new_data as $label => $value)
-                            <tr>
-                                <td width="40%">{{ $label }}</td>
-                                <td>
-                                    @if (is_array($value))
-                                        <table class="table">
+    <div class="mb-3 p-3 table-responsive">
+        <x-ladmin-card>
+            <x-slot name="body">
+                <h5 class="card-title">New Data</h5>
+                <table class="table">
+                    @foreach ($data->new_data as $label => $value)
+                    <tr>
+                        <td width="40%">{{ $label }}</td>
+                        <td>
+                            @if (is_array($value))
+                            <table class="table">
                                             @foreach ($value as $title => $item)
                                                 <tr>
                                                     <td>{{ $title }}</td>
@@ -69,17 +72,17 @@
     @endif
 
     @if (count($data->old_data) > 0)
-        <div class="mb-3 p-3 table-responsive">
-            <x-ladmin-card>
-                <x-slot name="body">
-                    <h5 class="card-title">Old Data</h5>
-                    <table class="table">
+    <div class="mb-3 p-3 table-responsive">
+        <x-ladmin-card>
+            <x-slot name="body">
+                <h5 class="card-title">Old Data</h5>
+                <table class="table">
                         @foreach ($data->old_data as $label => $value)
-                            <tr>
-                                <td width="40%">{{ $label }}</td>
-                                <td>
-                                    @if (is_array($value))
-                                        <table class="table">
+                        <tr>
+                            <td width="40%">{{ $label }}</td>
+                            <td>
+                                @if (is_array($value))
+                                <table class="table">
                                             @foreach ($value as $title => $item)
                                                 <tr>
                                                     <td>{{ $title }}</td>
@@ -89,15 +92,17 @@
                                         </table>
                                     @else
                                         {{ $value ?? '-' }}
-                                    @endif
-                                </td>
-                            </tr>
-                        @endforeach
-                    </table>
-                </x-slot>
-            </x-ladmin-card>
+                                        @endif
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </table>
+                        </x-slot>
+                    </x-ladmin-card>
+                </div>
+                @endif
+
+
+            </div>
         </div>
-    @endif
-
-
 </x-ladmin-auth-layout>

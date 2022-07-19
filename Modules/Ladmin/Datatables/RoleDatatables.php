@@ -68,7 +68,8 @@ class RoleDatatables extends Datatable
                             ->init($this->initButton()) //add remove  button
                             ->attr($this->createButton()), //add attribute
                     ])
-                    ->initComplete('function() { $("#overlay").hide(); }');
+                    ->initComplete('function() { $("#overlay").hide(); }')
+                    ->headerCallback("function() { $('#roles-table thead tr').addClass('fw-semibold fs-6 text-gray-800') }");
     }
 
 

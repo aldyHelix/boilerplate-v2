@@ -47,6 +47,13 @@
                 margin-left: 40%;
                 top: 40%;
             }
+
+            table.dataTable thead > tr > th.sorting:after, table.dataTable thead > tr > th.sorting_desc:after {
+                content: "";
+                align-content: center;
+                top: 40%;
+            }
+
         </style>
     @endsection
     <x-slot name="button_create">

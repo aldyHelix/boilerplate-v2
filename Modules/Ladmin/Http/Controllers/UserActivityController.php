@@ -17,7 +17,7 @@ class UserActivityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(UserActivityDatatables $dataTable)
     {
 
         ladmin()->allows(['user.activity.index']);
@@ -26,7 +26,11 @@ class UserActivityController extends Controller
             session()->flash('info', 'Add this trait <code>Hexters\Ladmin\LadminLoggable</code> to all the Models you want to monitor');
         }
 
-        return UserActivityDatatables::view();
+        $pageOptions = [
+            'button_create' => view('ladmin::bootstrap.activities._parts._delete', ['button' => false]),
+        ];
+
+        return $dataTable->render('boiler-page.index', $pageOptions);
     }
 
     /**

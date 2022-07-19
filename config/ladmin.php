@@ -68,7 +68,7 @@ return [
      |
      */
     'date' => [
-        'format' => 'm/d/Y H:i'
+        'format' => 'd-m-Y H:i'
     ],
 
     /*

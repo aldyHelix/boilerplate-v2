@@ -1,6 +1,8 @@
-<x-ladmin-button data-bs-toggle="modal" data-bs-target="#delete-activity">
-    Delete Activity
-</x-ladmin-button>
+@if ($button)
+    <x-ladmin-button data-bs-toggle="modal" data-bs-target="#delete-activity">
+        Delete Activity
+    </x-ladmin-button>
+@endif
 
 <x-ladmin-modal id="delete-activity">
     <x-slot name="title">Delete</x-slot>
