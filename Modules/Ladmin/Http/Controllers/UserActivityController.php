@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Modules\Ladmin\Datatables\UserActivityDatatables;
 use Modules\Ladmin\Http\Controllers\Controller;
 use Hexters\Ladmin\Models\LadminLoggable;
+use Flasher\Toastr\Prime\ToastrFactory;
 
 class UserActivityController extends Controller
 {
@@ -17,13 +18,13 @@ class UserActivityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(UserActivityDatatables $dataTable)
+    public function index(UserActivityDatatables $dataTable, ToastrFactory $toastr)
     {
 
         ladmin()->allows(['user.activity.index']);
 
         if (in_array(config('app.env'), ['local']) && !request()->has('draw')) {
-            session()->flash('info', 'Add this trait <code>Hexters\Ladmin\LadminLoggable</code> to all the Models you want to monitor');
+            $toastr->addInfo('Add this trait <code>Hexters\Ladmin\LadminLoggable</code> to all the Models you want to monitor');
         }
 
         $pageOptions = [
